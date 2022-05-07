@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		font-family: "Nunito", sans-serif;
+	}
+}
+
+@layer components {
+	.btn {
+		@apply inline-block py-2 px-3 rounded-sm text-white bg-blue-500 transition hover:bg-blue-600;
+	}
+
+	.btn-outline {
+		@apply inline-block py-3 px-4 border border-blue-500 text-blue-500 font-bold rounded-md mx-auto transition hover:bg-blue-500 hover:text-white;
+	}
+
+	.section-heading {
+		@apply text-center text-4xl font-bold mb-10;
+	}
+
+	.header--scrolled {
+		@apply sticky top-0 left-0 right-0 z-10 w-full bg-white shadow transition;
+	}
+	.flex-center {
+		@apply flex items-center;
+	}
+	.flex-center-column {
+		@apply flex justify-center items-center flex-col;
+	}
+
+	.flex-center-between {
+		@apply flex justify-between items-center flex-wrap;
+	}
+
+	.container {
+		@apply w-full mx-auto px-3 sm:max-w-[600px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px];
+	}
+
+	.grid-layout {
+		@apply grid grid-cols-1 gap-4 md:grid-cols-3 lg:gap-7;
+	}
+
+	.py-90 {
+		@apply py-[90px];
+	}
+
+	.form-container {
+		@apply fixed inset-0 z-20 flex items-center justify-center bg-login bg-cover bg-no-repeat;
+	}
+
+	.form {
+		@apply py-5 px-8 w-full max-w-[440px] bg-white shadow-lg rounded-sm;
+	}
+
+	.form-header {
+		@apply text-center my-5;
+	}
+
+	.form-group {
+		@apply relative mb-4;
+	}
+
+	.form-password-icon {
+		@apply absolute right-4 top-1/2 transition;
+	}
+
+	.form-input {
+		@apply block w-full border py-2 px-3 outline-none focus:ring-2 focus:ring-blue-500/60 transition rounded-sm;
+	}
+
+	.form-check {
+		@apply appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer text-white;
+	}
+
+	.hover-blue {
+		@apply transition hover:text-blue-500;
+	}
+
+	.plan {
+		@apply text-center shadow-lg hover:shadow-xl border pt-10 pb-8 rounded-md transition;
+	}
+
+	.plan-heading {
+		@apply text-2xl font-bold mb-4;
+	}
+
+	.advantage {
+		@apply flex gap-7 p-3;
+	}
+
+	.advantage-heading {
+		@apply text-2xl font-bold mb-2;
+	}
+}
