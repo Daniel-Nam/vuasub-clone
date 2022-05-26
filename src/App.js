@@ -1,33 +1,51 @@
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 import Header from "./components/Header";
-import Home from "./pages/Home";
-import Login from "./pages/auth/Login";
-import SignUp from "./pages/auth/SignUp";
-import Profile from "./pages/Profile";
+import paths from "./routes";
 
 export default function App() {
-	console.log(
-		"%cConsole là một nơi vô cùng nguy hiểm, cách hacker 🧑‍💻 khác có thể thông quá nó để làm việc xấu !!!",
-		"color: red; font-size: 30px;"
-	);
+	const [goTop, setGoTop] = useState(false);
 
-	console.log(
-		"%cCẩn thận bạn nhá 👀👀👀",
-		"color: #eab308; font-size: 30px;"
-	);
+	const handleScrollTop = () => {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	};
+
+	useEffect(() => {
+		window.addEventListener("scroll", () => {
+			if (window.scrollY > 100) {
+				setGoTop(true);
+			} else {
+				setGoTop(false);
+			}
+		});
+	});
 
 	return (
 		<>
 			<Header />
+
 			<main className="min-h-screen py-10 bg-cream">
 				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/login" element={<Login />} />
-					<Route path="/sign-up" element={<SignUp />} />
-					<Route path="/profile" element={<Profile />} />
+					{paths.map((page) => (
+						<Route
+							key={uuidv4()}
+							path={page.path}
+							element={<page.component />}
+						/>
+					))}
 				</Routes>
 			</main>
+
+			{goTop && (
+				<button
+					className="fixed bottom-6 right-6 shadow-md btn"
+					onClick={handleScrollTop}
+				>
+					<i className="bi bi-chevron-double-up"></i>
+				</button>
+			)}
 		</>
 	);
 }

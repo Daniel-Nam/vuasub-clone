@@ -17,7 +17,7 @@ export default function SignUp() {
 		setPassword(e.target.value);
 	};
 
-	const handleShow = (e) => {
+	const showPassword = (e) => {
 		e.preventDefault();
 		setIsShow(!isShow);
 	};
@@ -46,9 +46,8 @@ export default function SignUp() {
 	return (
 		<div className="form-container">
 			<form className="form" onSubmit={handleSubmit}>
-				<Link to="/" className="hover-blue">
-					<i className="bi bi-arrow-left mr-2"></i>
-					<span>Về trang chủ</span>
+				<Link to="/" className="form-link">
+					<i className="bi bi-arrow-left"></i>
 				</Link>
 
 				<header className="form-header">
@@ -83,7 +82,10 @@ export default function SignUp() {
 						autoComplete="off"
 						onChange={handlePassword}
 					/>
-					<button onClick={handleShow} className="form-password-icon">
+					<button
+						onClick={showPassword}
+						className="form-password-icon"
+					>
 						{isShow ? (
 							<i className="bi bi-eye-fill"></i>
 						) : (
